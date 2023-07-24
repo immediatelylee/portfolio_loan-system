@@ -3,7 +3,7 @@ package com.investbank.loansystem.controller;
 import com.investbank.loansystem.dto.ResponseDTO;
 import com.investbank.loansystem.dto.ResultObject;
 
-public abstract class AbstructController {
+public abstract class AbstractController {
 
     protected <T> ResponseDTO<T> ok() {
         return ok(null, ResultObject.getSuccess());
