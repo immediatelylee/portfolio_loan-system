@@ -29,5 +29,11 @@ public class CounselController extends AbstractController {
     public ResponseDTO<Response> update(@PathVariable Long counselId, @RequestBody Request request) {
         return ok(counselService.update(counselId, request));
     } // TODO: 어느 곳에서는 특정한 이유로 PutMapping 자체를 인정하지 않고 PostMapping만 인정하기도 한다 수정할지 여부를 좀더 공부하고 개선할지 결정할것
+
+    @DeleteMapping("/{counselId}")
+    public ResponseDTO<Void> delete(@PathVariable Long counselId) {
+        counselService.delete(counselId);
+        return ok();
+    }
 }
 
