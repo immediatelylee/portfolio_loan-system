@@ -80,4 +80,5 @@ public class CounselServiceTest {
 
         Assertions.assertThrows(BaseException.class, () -> counselService.get(2L));
     }
+
 }
