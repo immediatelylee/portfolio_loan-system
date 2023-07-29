@@ -14,6 +14,7 @@ import com.investbank.loansystem.dto.ApplicationDTO.Response;
 import com.investbank.loansystem.dto.ApplicationDTO.Request;
 
 import java.math.*;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -50,5 +51,21 @@ public class ApplicationServiceTest {
         Response actual = applicationService.create(request);
 
         assertThat(actual.getName()).isSameAs(entity.getName());
+    }
+
+
+    @Test
+    void Should_ReturnResponseOfExistApplicationEntity_When_RequestExistApplicationId() {
+        Long findId = 1L;
+
+        Application entity = Application.builder()
+                .applicationId(1L)
+                .build();
+
+        when(applicationRepository.findById(findId)).thenReturn(Optional.ofNullable(entity));
+
+        Response actual = applicationService.get(1L);
+
+        assertThat(actual.getApplicationId()).isSameAs(findId);
     }
 }
