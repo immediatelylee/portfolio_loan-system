@@ -18,4 +18,9 @@ public class ApplicationController extends AbstractController {
     public ResponseDTO<Response> create(@RequestBody Request request) {
         return ok(applicationService.create(request));
     }
+
+    @GetMapping("/{applicationId}")
+    public ResponseDTO<Response> get(@PathVariable Long applicationId) {
+        return ok(applicationService.get(applicationId));
+    }
 }
