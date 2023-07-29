@@ -1,6 +1,7 @@
 package com.investbank.loansystem.service;
 
 import com.investbank.loansystem.domain.*;
+import com.investbank.loansystem.exception.*;
 import com.investbank.loansystem.repository.*;
 import com.investbank.loansystem.dto.ApplicationDTO.Request;
 import com.investbank.loansystem.dto.ApplicationDTO.Response;
@@ -26,5 +27,14 @@ public class ApplicationServiceImpl implements ApplicationService {
         Application applied = applicationRepository.save(application);
 
         return modelMapper.map(applied, Response.class);
+    }
+
+    @Override
+    public Response get(Long applicationId) {
+        Application application = applicationRepository.findById(applicationId).orElseThrow(() -> {
+            throw new BaseException(ResultType.SYSTEM_ERROR);
+        });
+
+        return modelMapper.map(application, Response.class);
     }
 }
