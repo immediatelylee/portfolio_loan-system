@@ -25,5 +25,8 @@ public class TermsController extends AbstractController {
         return ok(termsService.create(request));
     }
 
-
+    @GetMapping()
+    public ResponseDTO<List<Response>> getAll() {
+        return ok(termsService.getAll());
+    }
 }
