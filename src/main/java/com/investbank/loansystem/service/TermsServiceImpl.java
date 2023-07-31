@@ -29,4 +29,10 @@ public class TermsServiceImpl implements TermsService {
         return modelMapper.map(created, Response.class);
     }
 
+    @Override
+    public List<Response> getAll() {
+        List<Terms> termsList = termsRepository.findAll();
+
+        return termsList.stream().map(t -> modelMapper.map(t, Response.class)).collect(Collectors.toList());
+    }
 }
