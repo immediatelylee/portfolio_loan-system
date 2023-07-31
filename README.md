@@ -35,4 +35,4 @@ Spring Boot
 
 * https://github.com/users/immediatelylee/projects/5
 
-추가적인 리팩토링이 있는지 이슈별로 어떤 변경이 있었느지 확인 가능합니다.
+추가적인 리팩토링이 있는지 이슈별로 어떤 변경이 있었는지 확인 가능합니다.
