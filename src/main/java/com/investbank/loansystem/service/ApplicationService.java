@@ -1,6 +1,8 @@
 package com.investbank.loansystem.service;
+
 import com.investbank.loansystem.dto.ApplicationDTO.Response;
 import com.investbank.loansystem.dto.ApplicationDTO.Request;
+import com.investbank.loansystem.dto.ApplicationDTO.AcceptTerms;
 
 public interface ApplicationService {
     // TODO: Response, Request을 파일명을 통해 유추할수 있지만 import를 보지 않으면 ApplicationDTO 의 Response임을 인지 하지 못할 수 있다.
@@ -12,4 +14,6 @@ public interface ApplicationService {
     Response update(Long applicationId, Request request);
 
     void delete(Long applicationId);
+
+    Boolean acceptTerms(Long applicationId, AcceptTerms request);
 }
